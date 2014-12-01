@@ -23,7 +23,7 @@ public class MeanFilter implements ImageFilter{
     private int radius;
 
     public MeanFilter() {
-        radius = 1;
+        radius = 2;
     }
     
     

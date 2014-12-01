@@ -33,7 +33,7 @@ public class MedianFilter implements ImageFilter,IParametersPanel {
     private int radius;
 	
     public MedianFilter () {
-	radius = 1;
+	radius = 2;
     }
 	
 	

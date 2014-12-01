@@ -25,7 +25,7 @@ import imagepreprocessing.filter.impl.GrayscaleFilter;
 import imagepreprocessing.filter.impl.HistogramEqualizationFilter;
 import imagepreprocessing.filter.impl.HueValues;
 import imagepreprocessing.filter.impl.InverseDilatation;
-import imagepreprocessing.filter.impl.LetterSegmentationFilter;
+import imagepreprocessing.filter.impl.LetterSeparationFilter;
 import imagepreprocessing.filter.impl.LungCrop;
 import imagepreprocessing.filter.impl.LungErosion;
 import imagepreprocessing.filter.impl.LungSplit;
@@ -297,7 +297,7 @@ public class ImagePreprocessingPanel extends javax.swing.JPanel {
         allFiltersLM.addElement(new HueValues());
         allFiltersLM.addElement(new SegmentationOCRFilter());
         allFiltersLM.addElement(new GenericConvolutuion());
-        allFiltersLM.addElement(new LetterSegmentationFilter());
+        allFiltersLM.addElement(new LetterSeparationFilter());
         allFiltersLM.addElement(new GaborFilter());
 //        selectedFiltersLM.addElement(new GrayscaleFilter());
 //        selectedFiltersLM.addElement(new GaussianBluring());

@@ -21,9 +21,9 @@ import javax.imageio.ImageIO;
  *
  * @author Mihailo
  */
-public class LetterSegmentationFilter implements ImageFilter {
+public class LetterSeparationFilter implements ImageFilter {
 
-    private BufferedImage originalImage;
+     private BufferedImage originalImage;
 
     private int width;
     private int height;
@@ -41,14 +41,14 @@ public class LetterSegmentationFilter implements ImageFilter {
 
         int name = 1;
 
-        for (int i = 0; i < width; i++) {
-            for (int j = 0; j < height; j++) {
+        for (int j = 0; j < height; j++) {
+            for (int i = 0; i < width; i++) {
 
                 int color = new Color(originalImage.getRGB(i, j)).getRed();
                 if (color == 255) {
                     visited[i][j] = true;
                 } else {
-                    if (name > 30000) {
+                    if (name > 3000) {
                         return originalImage;
                     }
                     BFS(i, j, name + "");
@@ -72,9 +72,9 @@ public class LetterSegmentationFilter implements ImageFilter {
         BufferedImage letter = new BufferedImage(letterWidth, letterHeight, BufferedImage.TYPE_BYTE_BINARY);
         int alpha = new Color(originalImage.getRGB(startI, startJ)).getAlpha();
         int white = PreprocessingHelper.colorToRGB(alpha, 255, 255, 255);
-        int black = PreprocessingHelper.colorToRGB(alpha, 0, 0, 0);
-        for (int i = 0; i < letterWidth; i++) {
-            for (int j = 0; j < letterHeight; j++) {
+        int black =  PreprocessingHelper.colorToRGB(alpha, 0, 0, 0);
+        for (int j = 0; j < letterHeight; j++) {
+            for (int i = 0; i < letterWidth; i++) {
                 letter.setRGB(i, j, white);
 
             }
@@ -109,8 +109,8 @@ public class LetterSegmentationFilter implements ImageFilter {
                 throw e;
             }
             //==================================================================
-            for (int i = x - 1; i <= x + 1; i++) {
-                for (int j = y - 1; j <= y + 1; j++) {
+            for (int j = y - 1; j <= y + 1; j++) {
+                for (int i = x - 1; i <= x + 1; i++) {
                     if (i >= 0 && j >= 0 && i < originalImage.getWidth() && j < originalImage.getHeight()) {
                         if (!visited[i][j]) {
                             int color = new Color(originalImage.getRGB(i, j)).getRed();
@@ -146,7 +146,7 @@ public class LetterSegmentationFilter implements ImageFilter {
 
     @Override
     public String toString() {
-        return "Letter segmentation filter";
+        return "Letter Segmentation filter";
     }
-
+    
 }
