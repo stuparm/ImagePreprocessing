@@ -4,10 +4,12 @@
  * and open the template in the editor.
  */
 
-package imagepreprocesing.ocr.workflow;
+package imagepreprocessing.ocr.workflow;
 
 import imagepreprocessing.filter.impl.GrayscaleFilter;
 import imagepreprocessing.filter.impl.SegmentationOCRFilter;
+import java.util.ArrayList;
+
 
 /**
  *
@@ -34,6 +36,7 @@ public class Test {
         LetterCreator letterCreator = new LetterCreator(locationFolder);
         letterCreator.createLetterImage(80, 80); //dimensions of the image
         
+        ArrayList<String> letterLabels = Share.getInstance().getLetterLabels();
         
         
     }

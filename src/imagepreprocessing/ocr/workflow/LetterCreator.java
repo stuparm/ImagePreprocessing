@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package imagepreprocesing.ocr.workflow;
+package imagepreprocessing.ocr.workflow;
 
 import imagepreprocessing.filter.impl.OCRSeparationFilter;
 import java.awt.Color;
@@ -21,6 +21,7 @@ public class LetterCreator {
     private String location;
     private String text;
     private BufferedImage image;
+    
 
     
 
@@ -35,6 +36,7 @@ public class LetterCreator {
         OCRSeparationFilter osf = new OCRSeparationFilter(letterWidth, letterHeight, location, text);
         osf.setLinePositions(linePosition);
         osf.processImage(image);
+        Share.getInstance().setLetterLabels(osf.getLetterLabels());
     }
 
     

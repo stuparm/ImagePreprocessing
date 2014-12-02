@@ -1,5 +1,5 @@
 
-package neurophClasses;
+package imagepreprocessing.helper;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;

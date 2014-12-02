@@ -11,6 +11,7 @@ import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Random;
 import java.util.logging.Level;
@@ -36,6 +37,7 @@ public class OCRSeparationFilter implements ImageFilter {
     private int[] counts;
 
     private int[] linePositions = null;
+    private ArrayList<String> letterLabels;
 
     private String text;
     private int seqNum = 0;
@@ -48,7 +50,7 @@ public class OCRSeparationFilter implements ImageFilter {
         this.letterHeight = letterHeight;
         this.location = location;
         this.text = text;
-
+        letterLabels = new ArrayList<>();
     }
 
     @Override
@@ -143,13 +145,13 @@ public class OCRSeparationFilter implements ImageFilter {
             }
         }
 
-        if (countPixels < 35) {
+        if (countPixels < 35) { //da ne bi uzimao male crtice, tacke
             return;
         }
 
         String name = createName();
-//        String name = seqNum+"";
-        saveToFile(letter, seqNum+".  "+name);
+        saveToFile(letter, seqNum+"_"+name); //potrebno je izbaciti seqNum i ostaviti samo name
+        
         seqNum++;
 
     }
@@ -204,6 +206,7 @@ public class OCRSeparationFilter implements ImageFilter {
             counts[key - offsetSMALL + offsetARRAY]++;
         }
         String name = c + "_" + number;
+        letterLabels.add(c+"");
         return name;
     }
 
@@ -211,4 +214,11 @@ public class OCRSeparationFilter implements ImageFilter {
         this.linePositions = linePositions;
     }
 
+    public ArrayList<String> getLetterLabels() {
+        return letterLabels;
+    }
+
+    
+    
+    
 }

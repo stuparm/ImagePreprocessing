@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package imagepreprocesing.ocr.workflow;
+package imagepreprocessing.ocr.workflow;
 
 import imagepreprocessing.filter.ImageFilter;
 import imagepreprocessing.filter.ImageFilterChain;

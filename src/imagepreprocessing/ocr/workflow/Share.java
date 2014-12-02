@@ -4,9 +4,10 @@
  * and open the template in the editor.
  */
 
-package imagepreprocesing.ocr.workflow;
+package imagepreprocessing.ocr.workflow;
 
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
 /**
  *
@@ -16,6 +17,7 @@ public class Share {
     
     private String text;
     private BufferedImage image;
+    private ArrayList<String> letterLabels;
 
     public String getText() {
         return text;
@@ -32,6 +34,19 @@ public class Share {
     public void setImage(BufferedImage image) {
         this.image = image;
     }
+
+    public ArrayList<String> getLetterLabels() {
+        return letterLabels;
+    }
+
+    public void setLetterLabels(ArrayList<String> letterLabels) {
+        this.letterLabels = letterLabels;
+    }
+    
+    
+    
+    
+    
     
 
     private static Share instance = null;

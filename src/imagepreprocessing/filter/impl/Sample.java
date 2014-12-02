@@ -10,7 +10,7 @@ import imagepreprocessing.filter.ImageFilter;
 import imagepreprocessing.helper.PreprocessingHelper;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
-import neurophClasses.FractionHSLData;
+import imagepreprocessing.helper.FractionHSLData;
 
 /**
  *
